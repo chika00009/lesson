@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQ - Инновационные Технологии</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            background-color: #444;
+            color: white;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative; /* Для использования псевдо-элемента */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 5px 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #666;
+            border-radius: 5px;
+        }
+
+        /* Линия, появляющаяся снизу */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Стили для разделов */
+        section {
+            padding: 30px;
+            background-color: white;
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .tech-images {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .tech-images img {
+            width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Темная тема */
+        body.dark-mode {
+            background-color: #181818;
+            color: white;
+        }
+
+        header.dark-mode {
+            background-color: #222;
+        }
+
+        nav.dark-mode {
+            background-color: #333;
+        }
+
+        section.dark-mode {
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        footer.dark-mode {
+            background-color: #222;
+        }
+
+        /* Кнопка переключения темы */
+        .theme-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(145deg, #6e7f84, #d3e2e5);
+            color: white;
+            padding: 12px 24px;
+            border: 2px solid #555;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), -3px -3px 6px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .theme-switcher:hover {
+            background: linear-gradient(145deg, #a4b0b7, #b8c7cc);
+            transform: translateY(-3px);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .theme-switcher:active {
+            background: linear-gradient(145deg, #a4b0b7, #6e7f84);
+            transform: translateY(1px);
+            box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2), inset -3px -3px 6px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .tech-images {
+                flex-direction: column;
+            }
+
+            .tech-images img {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>IQ - Инновационные Технологии</h1>
+    <p>Погружение в будущее с инновационными решениями</p>
+</header>
+
+<!-- Кнопка переключения темы -->
+<button class="theme-switcher" onclick="toggleTheme()">Переключить тему</button>
+
+<!-- Навигационное меню -->
+<nav>
+    <ul>
+        <li><a href="javascript:void(0);" onclick="showPage(1)">О компании</a></li>
+        <li><a href="javascript:void(0);" onclick="showPage(2)">Инновационные Технологии</a></li>
+        <li><a href="javascript:void(0);" onclick="showPage(3)">Применение Технологий</a></li>
+    </ul>
+</nav>
+
+<!-- Разделы сайта -->
+<section id="page1" class="page-content">
+    <h2>О компании</h2>
+    <div>
+        <h3>Наша миссия</h3>
+        <p>Компания IQ — лидер в разработке и внедрении инновационных технологий. Мы используем передовые методы и новейшие разработки для создания решений, которые меняют мир.</p>
+        <p>Наши технологии направлены на оптимизацию процессов, повышение эффективности и создание новых возможностей для бизнеса и общества в целом.</p>
+    </div>
+    <div>
+        <h3>Наши ценности</h3>
+        <p>В основе нашей работы лежат инновации, качество и устойчивое развитие. Мы стремимся сделать мир лучше через технологические прорывы.</p>
+    </div>
+    <div class="tech-images">
+        <img src="https://via.placeholder.com/300x200?text=Фото+1" alt="Фото компании 1">
+        <img src="https://via.placeholder.com/300x200?text=Фото+2" alt="Фото компании 2">
+        <img src="https://via.placeholder.com/300x200?text=Фото+3" alt="Фото компании 3">
+    </div>
+</section>
+
+<section id="page2" class="page-content">
+    <h2>Инновационные Технологии</h2>
+    <div>
+        <h3>Искусственный интеллект (AI)</h3>
+        <p>AI позволяет создавать умные системы, которые могут обучаться и принимать решения без участия человека. Эта технология активно используется для автоматизации процессов, улучшения качества обслуживания и многого другого.</p>
+    </div>
+    <div>
+        <h3>Интернет вещей (IoT)</h3>
+        <p>IoT позволяет соединять различные устройства через интернет, создавая так называемые "умные" дома и офисы. Управление техникой и оборудованием становится более удобным и автоматизированным.</p>
+    </div>
+    <div>
+        <h3>Блокчейн</h3>
+        <p>Блокчейн - это технология для хранения данных и проведения транзакций без посредников, которая обеспечивает высокую безопасность и прозрачность.</p>
+    </div>
+    <div class="tech-images">
+        <img src="poi4.webp" alt="Фото искусственного интеллекта 1">
+        <img src="зщш5.webp" alt="Фото искусственного интеллекта 2">
+        <img src="зщш6.webp" alt="Фото искусственного интеллекта 3">
+    </div>
+</section>
+
+<section id="page3" class="page-content">
+    <h2>Применение Технологий</h2>
+    <div>
+        <h3>Медицина</h3>
+        <p>Применение AI в медицине помогает ускорить диагностику заболеваний, улучшить точность анализа и даже разрабатывать новые методы лечения.</p>
+    </div>
+    <div>
+        <h3>Образование</h3>
+        <p>AI и IoT становятся неотъемлемой частью образовательных процессов, создавая умные учебные платформы и улучшая взаимодействие студентов и преподавателей.</p>
+    </div>
+    <div>
+        <h3>Финансовый сектор</h3>
+        <p>Блокчейн обеспечит высокую безопасность для транзакций и защищенность данных в финансовых операциях, что позволяет повысить доверие пользователей к электронным сервисам.</p>
+    </div>
+    <div class="tech-images">
+        <img src="poi.webp" alt="Фото применения в медицине 1">
+        <img src="poi2.webp" alt="Фото применения в медицине 2">
+        <img src="poi3.webp" alt="Фото применения в медицине 3">
+    </div>
+</section>
+
+<script>
+    let currentPage = 1;
+
+    // Функция для показа соответствующей страницы
+    function showPage(pageNumber) {
+        const pages = document.querySelectorAll('.page-content');
+        pages.forEach((page, index) => {
+            if (index + 1 === pageNumber) {
+                page.classList.add('active');
+            } else {
+                page.classList.remove('active');
+            }
+        });
+    }
+
+    // Изначально показываем первую страницу
+    showPage(currentPage);
+
+    // Функция для переключения темы
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('header').classList.toggle('dark-mode');
+        document.querySelector('nav').classList.toggle('dark-mode');
+        document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode'));
+        document.querySelector('footer').classList.toggle('dark-mode');
+    }
+</script>
+
+</body>
+</html>
