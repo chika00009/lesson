@@ -9,6 +9,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     
     <style>
+
+
+        .theme-switcher:hover {
+            background-color: #0056b3; /* Цвет фона кнопки при наведении */
+        }
         /* Основные стили для всего сайта */
         body {
             font-family: 'Arial', sans-serif; /* Устанавливает шрифт для всего сайта */
@@ -118,10 +123,63 @@
             text-align: center;
             padding: 10px 0;
         }*/
+          /* Стиль для снежинок */
+    .snowflake {
+        position: absolute;
+        top: -10px;
+        color: white;
+        font-size: 24px;
+        opacity: 0.8;
+        pointer-events: none;
+        z-index: 9999;
+    }
+
+    /* Анимация для снежинок */
+    @keyframes snow-fall {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(100vh);
+        }
+    }
+
+    /* Применение анимации к снежинкам */
+    .snowflake {
+        animation: snow-fall linear infinite;
+    }
+
+    /* Добавление случайной анимации для каждой снежинки */
+    .snowflake:nth-child(odd) {
+        animation-duration: 5s;
+        animation-delay: -1s;
+    }
+
+    .snowflake:nth-child(even) {
+        animation-duration: 7s;
+        animation-delay: -3s;
+    }
     </style>
 </head>
 <body>
-
+    <div class="snowflake" style="left: 10%; font-size: 20px;">❄</div>
+    <div class="snowflake" style="left: 20%; font-size: 30px;">❄</div>
+    <div class="snowflake" style="left: 30%; font-size: 25px;">❄</div>
+    <div class="snowflake" style="left: 40%; font-size: 35px;">❄</div>
+    <div class="snowflake" style="left: 50%; font-size: 22px;">❄</div>
+    <div class="snowflake" style="left: 60%; font-size: 28px;">❄</div>
+    <div class="snowflake" style="left: 70%; font-size: 24px;">❄</div>
+    <div class="snowflake" style="left: 80%; font-size: 30px;">❄</div>
+    <div class="snowflake" style="left: 90%; font-size: 25px;">❄</div>
+    <div class="snowflake" style="left: 10%; font-size: 20px;">❄</div>
+    <div class="snowflake" style="left: 20%; font-size: 30px;">❄</div>
+    <div class="snowflake" style="left: 30%; font-size: 25px;">❄</div>
+    <div class="snowflake" style="left: 40%; font-size: 35px;">❄</div>
+    <div class="snowflake" style="left: 50%; font-size: 22px;">❄</div>
+    <div class="snowflake" style="left: 60%; font-size: 28px;">❄</div>
+    <div class="snowflake" style="left: 70%; font-size: 24px;">❄</div>
+    <div class="snowflake" style="left: 80%; font-size: 30px;">❄</div>
+    <div class="snowflake" style="left: 90%; font-size: 25px;">❄</div>
 <!-- Шапка сайта -->
 <header>
     <h1>Программирование и Разработка</h1> <!-- Заголовок сайта -->
